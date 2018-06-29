@@ -79,7 +79,7 @@ namespace IB130149_Flashcard_Service.Controllers
         [ResponseType(typeof(KorisnikVM))]
         public IHttpActionResult PostKorisnici(KorisnikVM model)
         {
-            Korisnici korisnik = db.Korisnici.Where(x => x.Ime == model.Ime || x.Prezime == model.Prezime || x.Email == model.Email || x.KorisnickoIme == model.KorisnickoIme || x.Lozinka == model.Lozinka).FirstOrDefault();
+            Korisnici korisnik = db.Korisnici.Where(x => x.Email == model.Email || x.KorisnickoIme == model.KorisnickoIme).FirstOrDefault();
 
             if (model == null || korisnik != null)
             {

@@ -87,8 +87,12 @@ namespace IB130149_Flashcard_Service.Controllers
         public IHttpActionResult DeleteDekovi(int DeckId)
         {
             Dekovi dekovi = db.Dekovi.Find(DeckId);
+            Kategorije kategorije = null;
             // use existing category field to find cateogry
-            Kategorije kategorije = db.Kategorije.Find(dekovi.KategorijaId);
+            if(dekovi.KategorijaId != null)
+            {
+                kategorije = db.Kategorije.Find(dekovi.KategorijaId);
+            }
 
             if (dekovi == null)
             {
